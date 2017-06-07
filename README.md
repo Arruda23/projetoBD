@@ -3,14 +3,31 @@ Trabalho de Tópicos em Programação
 
 
 # instalar python 3.5.1 no ubuntu
+
 ->  baixar o python https://www.python.org/downloads/ 
+
+
 ->  sudo apt-get install xz-utils 
+
+
 ->  tar -Jxf archivo.tar.xz
+
+
 ->  cd /home/SEU-USUARIO/Downloads/Python-3.5.1 
+
+
 ->  ./configure
+
+
 ->  make
+
+
 ->  make test
+
+
 ->  sudo make install
+
+
 ->  python 
 
 # instalar PIP
