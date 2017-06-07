@@ -2,7 +2,7 @@
 Trabalho de Tópicos em Programação 
 
 
-#instalar python 3.5.1 no ubuntu
+# instalar python 3.5.1 no ubuntu
 ->  baixar o python https://www.python.org/downloads/ 
 ->  sudo apt-get install xz-utils 
 ->  tar -Jxf archivo.tar.xz
@@ -17,7 +17,7 @@ Trabalho de Tópicos em Programação
 
 -> sudo apt install python3-pip
 
-#instalar Virtualenv
+# instalar Virtualenv
 
 -> source bin/activate
 
