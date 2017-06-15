@@ -13,15 +13,22 @@
 			<td>TIPO</td>
 			<td>ENDERECO</td>
 			<td>RESPONSAVEL</td>
+			<td>Excluir</td>
+			<td>Atualizar</td>
 		</tr>
-		{% for imoveis in imoveis %}
+		{% for imovel in imoveis %}
 		<tr>
-			<td>{{imoveis.numero}}</td>
-			<td>{{imoveis.tipo}}</td>
-			<td>{{imoveis.endereco}}</td>
-			<td>{{imoveis.responsavel}}</td>
+			<td>{{imovel.numero}}</td>
+			<td>{{imovel.tipo}}</td>
+			<td>{{imovel.endereco}}</td>
+			<td>{{imovel.responsavel}}</td>
+			<td><a href="/excluir/{{imovel.numero}}">Excluir</a></td>
+			<td><a href="/atualizar/{{imovel.numero}}">Atualizar</a></td>
 		</tr>
+		
 		{% endfor %}
+
 	</table>
+	<a href="/index">Voltar</a>
 </body>
 </html>

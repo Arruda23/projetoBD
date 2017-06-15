@@ -62,5 +62,44 @@ def cadastro():
 def lista():
 	imoveis= Imovel.query.all()
 	return render_template("lista.html", imoveis=imoveis)
+
+@app.route("/excluir/<int:numero>")
+def remove(numero): 
+	imovel = Imovel.query.filter_by(numero=numero).first() #seleciona o imovel com determinado ID
+
+	db.session.delete(imovel) #remove esse imovel selecionado
+	db.session.commit() #aplica as alterações
+
+	imoveis = Imovel.query.all() #recarrega a lista de imoveis
+
+	return render_template("lista.html", imoveis=imoveis)
+
+app.route("/atualizar/<int:numero>", methods=['GET','POST']) 
+def atualiza(numero):
+	imovel=Imovel.query.filter_by(numero=numero).first()
+	
+	if request.method=="POST":
+		endereco=request.form.get("endereco")
+		dimensoes=request.form.get("dimensoes")
+		tipo=request.form.get("tipo")
+		qtdcomodos=request.form.get("qtdcomodos")
+		responsavel=request.form.get("responsavel")
+		status=request.form.get("status")
+		data=request.form.get("data")
+
+		if endereco and dimensoes and tipo and qtdcomodos and responsavel and status and data:	
+			imovel.endereco=endereco
+			imovel.dimensoes=dimensoes
+			imovel.tipo=tipo
+			imovel.qtdcomodos=qtdcomodos
+			imovel.responsavel=responsavel
+			imovel.status=status
+			imovel.data=data
+
+			db.session.commit()
+			return redirect(url_for("lista"))
+	
+	return render_template("atualizar.html",imovel=imovel)
+
 if __name__=='__main__':
 	app.run(debug=True)
